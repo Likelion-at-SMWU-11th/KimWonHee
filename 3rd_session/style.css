@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Calistoga&family=Nanum+Gothic:wght@400;700&family=Noto+Sans+KR:wght@100;400;700&family=Pattaya&family=Rubik+Puddles&display=swap");
+
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
 body,
 h1,
 h2 {
