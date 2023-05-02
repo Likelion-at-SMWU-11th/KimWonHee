@@ -1,0 +1,40 @@
+body,
+h1,
+h2 {
+  margin: 8px;
+  padding: 0px;
+}
+
+body {
+  min-width: fit-content; /* 브라우저의 크기가 어떻든 화면에 핏하게 보여주는 거  */
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+h2 {
+  background-color: #bebe;
+  font-size: 20px;
+  color: #282828;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #ebebeb;
+  padding: 5px;
+}
+
+.mainbox {
+  width: 610px;
+  padding: 30px;
+  margin: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid #ebebeb;
+  box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.title-box {
+  text-align: right;
+  margin-bottom: 20px;
+}
