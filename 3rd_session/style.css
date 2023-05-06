@@ -19,20 +19,28 @@ h1 {
   font-size: 36px;
   font-weight: bold;
   font-style: italic;
+  padding-bottom: 10px;
+  text-decoration-line: underline;
+  text-decoration-color: #bebe;
+  text-decoration-style: wavy;
+  text-underline-position: under;
+  text-shadow: 2px 2px 8px #bebe;
 }
 
 h2 {
+  border-radius: 10px;
   background-color: #bebe;
   font-size: 20px;
   color: #282828;
   margin-bottom: 16px;
   border-bottom: 1px solid #ebebeb;
-  padding: 5px;
+  padding: 10px;
 }
 
 .mainbox {
-  width: 610px;
+  width: 810px;
   padding: 30px;
+  padding-top: 50px;
   margin: 30px;
   margin-right: auto;
   margin-left: auto;
