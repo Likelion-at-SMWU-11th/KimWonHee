@@ -51,6 +51,7 @@ section {
   margin-left: auto;
   border: 1px solid #ebebeb;
   box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 .title-box {
@@ -65,8 +66,9 @@ a.btn {
 }
 
 a.btn:hover {
-  background-color: pink;
-  border-color: pink;
+  background-color: powderblue;
+  border-color: powderblue;
+  color: black;
   font-weight: 600;
 }
 
@@ -77,4 +79,19 @@ a.btn:hover {
 
 .pp {
   padding-left: 20px;
+}
+
+#liveToastBtn {
+  float: right;
+  background-color: rgb(252, 236, 171);
+  border-color: rgb(252, 236, 171);
+  color: black;
+}
+
+#liveToastBtn:hover {
+  background-color: powderblue;
+  border-color: powderblue;
+  color: black;
+
+  font-weight: 600;
 }
