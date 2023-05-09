@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Calistoga&family=Nanum+Gothic:wght@400;700&family=Noto+Sans+KR:wght@100;400;700&family=Pattaya&family=Rubik+Puddles&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Coming+Soon&family=Hahmlet:wght@300&family=Nanum+Gothic:wght@700&family=Noto+Serif+KR:wght@900&display=swap");
 
 * {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Hahmlet";
 }
 
 body,
@@ -19,28 +19,79 @@ h1 {
   font-size: 36px;
   font-weight: bold;
   font-style: italic;
+  padding-bottom: 10px;
+  text-decoration-line: underline;
+  text-decoration-color: #bebe;
+  text-decoration-style: wavy;
+  text-underline-position: under;
+  text-shadow: 2px 2px 8px #bebe;
 }
 
 h2 {
+  margin-top: 100px;
+  border-radius: 10px;
   background-color: #bebe;
   font-size: 20px;
   color: #282828;
   margin-bottom: 16px;
   border-bottom: 1px solid #ebebeb;
-  padding: 5px;
+  padding: 10px;
+}
+
+section {
+  padding-top: 30px;
 }
 
 .mainbox {
-  width: 610px;
+  width: 810px;
   padding: 30px;
+  padding-top: 50px;
   margin: 30px;
   margin-right: auto;
   margin-left: auto;
   border: 1px solid #ebebeb;
   box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 .title-box {
   text-align: right;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+a.btn {
+  background-color: #bebe;
+  color: black;
+  border-color: #bebe;
+}
+
+a.btn:hover {
+  background-color: powderblue;
+  border-color: powderblue;
+  color: black;
+  font-weight: 600;
+}
+
+.card-title {
+  display: inline;
+  box-shadow: inset 0 -10px 0 #d9fcdb;
+}
+
+.pp {
+  padding-left: 20px;
+}
+
+#liveToastBtn {
+  float: right;
+  background-color: rgb(252, 236, 171);
+  border-color: rgb(252, 236, 171);
+  color: black;
+}
+
+#liveToastBtn:hover {
+  background-color: powderblue;
+  border-color: powderblue;
+  color: black;
+
+  font-weight: 600;
 }
