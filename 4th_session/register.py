@@ -46,3 +46,27 @@ while True:
         else:
             print("생년월일 입력값이 올바르지 않습니다.")
     email=input("이메일: ")
+
+#3
+user['username']=username
+user['password']=pwd
+user['name']=name
+user['birth']=birth
+user['email']=email
+
+users.append(user) #왜 딕셔너리를 리스트에 저장하는거지? 
+print(users)
+
+print("============================")
+print(user['name'],"님 가입을 환영합니다!")
+print("============================")
+
+print("회원가입을 추가로 진행하시겠습니까?")
+print("y:진행              N:취소")
+answer=input(">> ")
+answer=answer.lower()
+
+if answer=='y':
+    pass
+elif answer=='n':
+    exit()
