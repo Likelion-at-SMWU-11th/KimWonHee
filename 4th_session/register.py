@@ -23,4 +23,26 @@ while not register:
         print("============================")
     else:
         print("입력 값을 확인해주세요.")
-        
+
+
+#2
+users=[] #users 리스트: 유저 정보를 저장
+
+while True:
+    user={} #user 딕셔너리: key-value 정보들을 딕셔너리 객체 하나로 저장, 비밀번호, 이름, 생년월일, 이메일을 입력받음
+    username=input("ID: ")
+    while True:
+        pwd=input("PWD: ")
+        pwd2=input("PWD 확인: ")
+        if pwd==pwd2:
+            break
+        else:
+            print("패스워드가 일치하지 않습니다.")
+    name=input('이름: ')
+    while True:
+        birth=input("생년월일(6자리): ")
+        if len(birth)==6:
+            break
+        else:
+            print("생년월일 입력값이 올바르지 않습니다.")
+    email=input("이메일: ")
