@@ -3,7 +3,7 @@ import json
 
 city = "Seoul"
 apikey = "********************"
-# apikey = "89a4bb42176bf6f313ec24bcf3fa7caf"
+# apikey = ""
 # api = "https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apikey}" : 그대로 나와버림
 api = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apikey}"
 # f-string을 이용했더니 city에 seoul이, apikey엔 api key 값이 들어간 채로 출력됨.
@@ -23,8 +23,14 @@ data = json.loads(result.text)
 
 # result.text 출력해서 dict 구조 파악 후 원하는 key값의 value만 가져옴
 print(data["name"], "의 날씨입니다.")
-print("날씨는", data["weather"][0]["main"], "입니다.")
+# print("날씨는", data["weather"][0]["main"], "입니다.")
+print("날씨는", data["weather"][0]["description"], "입니다.")
 # weather라는 key의 value가 list형=> list의 1번째 값인 dict에서 main이라는 key의 value가 clouds(날씨 value값)
 
-print("현재 온도는", data["main"]["temp"], "입니다")
-print("하지만 체감 온도는", data["main"]["feels_like"], "입니다")
+print("현재 온도는", data["main"]["temp"], "입니다.")
+print("하지만 체감 온도는", data["main"]["feels_like"], "입니다.")
+
+print("최저 기온은 ", data["main"]["temp_min"], " 입니다.")
+print("최고 기온은 ", data["main"]["temp_max"], " 입니다.")
+print("기압은 ", data["main"]["pressure"], " 입니다.")
+print("습도는 ", data["main"]["humidity"], " 입니다.")
