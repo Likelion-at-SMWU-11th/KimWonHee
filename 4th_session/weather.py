@@ -1,12 +1,13 @@
 import requests
 import json
 
-city = "Seoul"
+city = "Paris"
 apikey = "********************"
+# apikey = "89a4bb42176bf6f313ec24bcf3fa7caf"
 lang = "kr"
 # apikey = ""
 # api = "https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apikey}" : 그대로 나와버림
-api = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apikey}&lang={lang}&=units=metric"
+api = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apikey}&lang={lang}&units=metric"
 # f-string을 이용했더니 city에 seoul이, apikey엔 api key 값이 들어간 채로 출력됨.
 # 파이썬의 f-string을 사용하면 문자열 안에 우리가 원하는 변수를 넣을 수 있다.
 # 1) f-string을 적용하고 싶은 문자열 앞에 f라고 적어주기
