@@ -5,4 +5,5 @@ from django.http import HttpResponse
 
 
 def NewDjangoProject(request):
-    return HttpResponse("장고의 세계로 들어왔습니다.")
+    # return HttpResponse("장고의 세계로 들어왔습니다.")
+    return render(request, "NewDjangoProject.html")
