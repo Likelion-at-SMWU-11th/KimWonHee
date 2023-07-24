@@ -1,10 +1,18 @@
+
+
 {% load static %}
 <div class="card">
     <div class="card__header">
         <img src="http://via.placeholder.com/32x33" alt="프로필이미지">
         <a href="#">
-            <span class="card__user-name">likelion.official</span>
+            <span class="card__user-name">{{ post.writer }}</span>
         </a>
+        <!--작성자만 본인 글을 수정할 수 있도록 하기 위한 조건문-->
+        <!--현재 접속한 사용자와 게시글 작성자가 같을 경우에만 수정하기 버튼 표시-->
+        {% if request.user == post.writer %} 
+            <a href="{% url 'posts:post-update' post.id %}">수정하기 </a>
+            <a href="{% url 'posts:post-delete' post.id %}"> | 삭제하기</a>
+            {% endif %}
     </div>
     <div class="card__body">
         <!--이미지가 있는 경우-->
@@ -27,10 +35,9 @@
     </div>
     <div class="card_content">
         <span class="card__like-num">좋아요 00개</span>
+         
         <div class="card__main-text">
-            <!-- <p><span class="card__user-name">{{ post.writer }}</span>{{ post.content|truncatechars:35 }}더보기 </p>         
-            <a href="{% url 'posts:post-detail' post.id %}">더보기</a> 
-            'posts:post-detail’ 뒤에 post.id를 써줌으로써 해당 id값을 가진 게시글의 상세페이지로 넘어가도록 함.' -->
+           
             <p><span class="card__user-name">{{post.writer}}</span>
                 <!--list 보기인 경우 잘린 본문 표시-->
                 {% if not detail %}
@@ -71,3 +78,4 @@
         </div>
     </div>
 </div>
+
