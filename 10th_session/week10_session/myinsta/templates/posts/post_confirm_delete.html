@@ -3,4 +3,14 @@
 
 {% block content %}
 <h1>Post 삭제 화면</h1>
+<form action="" method="POST">
+    <!--csrf 검증 실패 화면이 뜨면 이거 넣어주면 됨-->
+    {% csrf_token %}
+    <p>한번 삭제된 데이터는 복구가 불가능합니다.</p>
+    <p>그래도 삭제하시겠습니까?</p><br/>
+    <a href="{% url 'index' %}">돌아가기</a>
+    <input type="submit" value="삭제하기">
+    <!--hard delete(데이터베이스 자체에서 삭제하는 거라 되돌릴 수 없음)임-->
+</form>
+{% include 'mixin/posts/post_card.html' with detail=True %} <!-- include를 사용함으로써 html 하나만 관리하면 되어 편해짐 -->
 {% endblock %}
