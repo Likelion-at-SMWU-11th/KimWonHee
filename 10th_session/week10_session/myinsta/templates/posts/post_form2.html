@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Form{% endblock %}
+
+{% block content %}
+<h1>Post 입력 화면 -form 사용</h1>
+<!--action의 url 지워줌. update도 create로 날리게 되는 현상(계속 생성됨) 막기 위해.-->
+<form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <div> 
+        {{ form.as_p }}
+    </div>
+    <div>
+        
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+
+</form>
+{% endblock %}
+
