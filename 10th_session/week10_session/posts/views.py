@@ -5,11 +5,7 @@ from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
 from .models import Post
 from .forms import PostBasedForm, PostCreateForm, PostDetailForm, PostUpdateForm
-from rest_framework.viewsets import ModelViewSet
 
-from .serializers import PostModelSerializer
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
 
 def index(request):
     return render(request, "index.html")
@@ -152,29 +148,3 @@ def post_create_form_view(request):
         #     image=image, content=content, writer=request.user
         # )
         return redirect("index")
-
-class PostModelViewSet(ModelViewSet):
-    queryset=Post.objects.all()
-    serializer_class=PostModelSerializer
-
-@api_view()
-def calculator(request):
-    num1=request.GET.get('num1',0)
-    num2=request.GET.get('num2',0)
-    operators=request.GET.get('operators')
-
-    if operators=='p':
-        result=int(num1)+int(num2)
-    elif operators=='-':
-        result=int(num1)-int(num2)
-    elif operators=='*':
-        result=int(num1)*int(num2)
-    elif operators=='/':
-        result=int(num1)/int(num2)
-    else:
-        result=0
-    data={
-        'type':'FBW',
-        'result': result
-    }
-    return Response(data)
