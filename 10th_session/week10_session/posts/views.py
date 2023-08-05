@@ -5,7 +5,11 @@ from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
 from .models import Post
 from .forms import PostBasedForm, PostCreateForm, PostDetailForm, PostUpdateForm
+from rest_framework.viewsets import ModelViewSet
 
+from .serializers import PostModelSerializer
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
 def index(request):
     return render(request, "index.html")
@@ -35,13 +39,13 @@ def post_detail_view(request, id):
     return render(request, "posts/post_detail.html", context)
 
 
-# 데코레이터 임포트
+# 데코레이터 임포트..
 @login_required
 def post_create_view(request):
     if request.method == "GET":
         return render(request, "posts/post_form.html")
     else:
-        image = request.FILES.get("image")
+        #image = request.FILES.get("image")
         content = request.POST.get("content")
         Post.objects.create(  # image, content 데이터를 담은 Post 객체 만들어서 저장
             image=image, content=content, writer=request.user
@@ -148,3 +152,29 @@ def post_create_form_view(request):
         #     image=image, content=content, writer=request.user
         # )
         return redirect("index")
+
+class PostModelViewSet(ModelViewSet):
+    queryset=Post.objects.all()
+    serializer_class=PostModelSerializer
+
+@api_view()
+def calculator(request):
+    num1=request.GET.get('num1',0)
+    num2=request.GET.get('num2',0)
+    operators=request.GET.get('operators')
+
+    if operators=='^':
+        result=int(num1)+int(num2)
+    elif operators=='-':
+        result=int(num1)-int(num2)
+    elif operators=='*':
+        result=int(num1)*int(num2)
+    elif operators=='/':
+        result=int(num1)/int(num2)
+    else:
+        result=0
+    data={
+        'type':'FBW',
+        'result':result
+    }
+    return Response(data)
