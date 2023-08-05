@@ -157,6 +157,8 @@ class PostModelViewSet(ModelViewSet):
     queryset=Post.objects.all()
     serializer_class=PostModelSerializer
 
+
+
 @api_view()
 def calculator(request):
     num1=request.GET.get('num1',0)
