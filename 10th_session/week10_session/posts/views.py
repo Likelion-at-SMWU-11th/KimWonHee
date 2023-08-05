@@ -39,7 +39,7 @@ def post_detail_view(request, id):
     return render(request, "posts/post_detail.html", context)
 
 
-# 데코레이터 임포트..
+# 데코레이터 임포트
 @login_required
 def post_create_view(request):
     if request.method == "GET":
