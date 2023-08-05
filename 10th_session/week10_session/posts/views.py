@@ -5,11 +5,7 @@ from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
 from .models import Post
 from .forms import PostBasedForm, PostCreateForm, PostDetailForm, PostUpdateForm
-from rest_framework.viewsets import ModelViewSet
 
-from .serializers import PostModelSerializer
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
 
 def index(request):
     return render(request, "index.html")
@@ -178,3 +174,4 @@ def calculator(request):
         'result':result
     }
     return Response(data)
+
