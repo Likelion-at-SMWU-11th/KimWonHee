@@ -39,13 +39,13 @@ def post_detail_view(request, id):
     return render(request, "posts/post_detail.html", context)
 
 
-# 데코레이터 임포트.
+# 데코레이터 임포트..
 @login_required
 def post_create_view(request):
     if request.method == "GET":
         return render(request, "posts/post_form.html")
     else:
-        image = request.FILES.get("image")
+        #image = request.FILES.get("image")
         content = request.POST.get("content")
         Post.objects.create(  # image, content 데이터를 담은 Post 객체 만들어서 저장
             image=image, content=content, writer=request.user
