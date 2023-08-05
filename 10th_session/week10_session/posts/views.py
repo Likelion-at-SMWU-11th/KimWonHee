@@ -163,7 +163,7 @@ def calculator(request):
     num2=request.GET.get('num2',0)
     operators=request.GET.get('operators')
 
-    if operators=='p':
+    if operators=='^':
         result=int(num1)+int(num2)
     elif operators=='-':
         result=int(num1)-int(num2)
@@ -175,6 +175,6 @@ def calculator(request):
         result=0
     data={
         'type':'FBW',
-        'result': result
+        'result':result
     }
     return Response(data)
