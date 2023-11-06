@@ -19,10 +19,10 @@ public class PostEntity extends BaseEntity{
     private String title;
     private String content;
     private String writer;
-    @JoinColumn(name="board_id")
-    @ManyToOne(
-            targetEntity = BoardEntity.class,
-            fetch=FetchType.LAZY
-    )
-    private BoardEntity boardEntity;
+//    @JoinColumn(name="board_id")
+//    @ManyToOne(
+//            targetEntity = BoardEntity.class,
+//            fetch=FetchType.LAZY
+//    )
+//    private BoardEntity boardEntity;
 }

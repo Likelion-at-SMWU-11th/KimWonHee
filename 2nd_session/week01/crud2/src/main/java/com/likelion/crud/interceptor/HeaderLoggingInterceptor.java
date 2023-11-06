@@ -14,17 +14,32 @@ import java.util.Enumeration;
 @Component
 public class HeaderLoggingInterceptor implements HandlerInterceptor {
     private static final Logger logger= LoggerFactory.getLogger(HeaderLoggingInterceptor.class);
+   // @Override
+//    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+//        HandlerMethod handlerMethod=(HandlerMethod) handler;
+//        logger.info("start processing of {}", handlerMethod.getMethod().getName());
+//        Enumeration<String> headerNames=request.getHeaderNames();
+//        while (headerNames.hasMoreElements()){
+//            String headerName=headerNames.nextElement();
+//            logger.info("{}={}", headerName, request.getHeader(headerName));
+//        }
+//        return true;
+//    }
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        HandlerMethod handlerMethod=(HandlerMethod) handler;
-        logger.info("start processing of {}", handlerMethod.getMethod().getName());
-        Enumeration<String> headerNames=request.getHeaderNames();
-        while (headerNames.hasMoreElements()){
-            String headerName=headerNames.nextElement();
-            logger.info("{}={}", headerName, request.getHeader(headerName));
+        if (handler instanceof HandlerMethod) {
+            HandlerMethod handlerMethod = (HandlerMethod) handler;
+            logger.info("start processing of {}", handlerMethod.getMethod().getName());
+            Enumeration<String> headerNames = request.getHeaderNames();
+            while (headerNames.hasMoreElements()) {
+                String headerName = headerNames.nextElement();
+                logger.info("{}={}", headerName, request.getHeader(headerName));
+            }
         }
+
         return true;
     }
+
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
