@@ -4,13 +4,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 @Getter
 @Setter
 @NoArgsConstructor
 public class PostDto {
     private int id;
+    @NotNull //validation annotation(3주차 4-2)
     private String title;
+    @Size(max=400)
     private String content;
+    @Size(min=3, max=10)
     private String writer;
     private int boardId;
 
