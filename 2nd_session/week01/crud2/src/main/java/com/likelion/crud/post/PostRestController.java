@@ -1,5 +1,6 @@
 package com.likelion.crud.post;
 
+import com.likelion.crud.exception.PostNotExistException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,7 @@ public class PostRestController {
     //http://localhost:8080/post
     //1 createPost
     @PostMapping()
+    @ResponseStatus(HttpStatus.CREATED)
     public void createPost(@RequestBody PostDto postDto) {
         logger.info(postDto.toString());
         this.postList.add(postDto);
@@ -69,5 +71,12 @@ public class PostRestController {
             @PathVariable("id") int id
     ){
         this.postList.remove(id);
+    }
+
+    //예외처리 추가
+    @GetMapping("/test-exception")
+    public void throwException(){
+        System.out.println("test-exception");
+        throw new PostNotExistException();
     }
 }

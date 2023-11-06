@@ -60,34 +60,46 @@ package com.likelion.crud.post;
 //    }
 //}
 
+import com.google.gson.Gson;
+import com.likelion.crud.aspect.LogExecutionTime;
+import com.likelion.crud.aspect.LogArguments;
+import com.likelion.crud.aspect.LogReturn;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
+
 
 @RestController
 @RequestMapping("Post")
 public class PostController{
     private static final Logger logger= LoggerFactory.getLogger(PostController.class);
     private final PostService postService;
-    public PostController(@Autowired PostService postService){
+    //private final Gson gson;
+    public PostController(@Autowired PostService postService, @Autowired Gson gson){
         this.postService=postService;
+        //this.gson=gson.getGson();
+        logger.info(gson.toString());
     }
 
+    @LogArguments
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public void createPost(@RequestBody PostDto postDto){
+    public void createPost(@Valid @RequestBody PostDto postDto){
         this.postService.createPost(postDto);
     }
 
+    @LogReturn
     @GetMapping("{id}")
     public PostDto readPost(@PathVariable("id") int id){
         return this.postService.readPost(id);
     }
 
+    @LogExecutionTime
     @GetMapping("")
     public List<PostDto> readPostAll(){
         return this.postService.readPostAll();
@@ -102,6 +114,19 @@ public class PostController{
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void deletePost(@PathVariable("id") int id){
         this.postService.deletePost(id);
+    }
+    @GetMapping("test-log")
+    public void testLog() {
+        logger.trace("TRACE");
+        logger.debug("DEBUG");
+        logger.info("inFo");
+        logger.warn("WARN");
+        logger.error("ERRORR");
+    }
+
+    @PostMapping("test-valid")
+    public void testValue(@Valid @RequestBody ValidTestDto dto){
+        logger.info(dto.toString());
     }
 }
 
