@@ -93,11 +93,11 @@ public class PostController{
         this.postService.createPost(postDto);
     }
 
-    @LogReturn
-    @GetMapping("{id}")
-    public PostDto readPost(@PathVariable("id") int id){
-        return this.postService.readPost(id);
-    }
+//    @LogReturn
+//    @GetMapping("{id}")
+//    public PostDto readPost(@PathVariable("id") int id){
+//        //return this.postService.readPost(id);
+//    }
 
     @LogExecutionTime
     @GetMapping("")

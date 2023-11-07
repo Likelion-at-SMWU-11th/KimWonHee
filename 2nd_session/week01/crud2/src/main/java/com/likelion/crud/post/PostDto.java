@@ -20,12 +20,19 @@ public class PostDto {
     private String writer;
     private int boardId;
 
-    public PostDto(int id, String title, String content, String writer, int boardId){
+    public PostDto(int id, String title, String content, String writer){//, int boardId
         this.id=id;
         this.title=title;
         this.content=content;
         this.writer=writer;
-        this.boardId=boardId;
+        //this.boardId=boardId;
+    }
+    public PostDto(int id){//, int boardId
+        this.id=id;
+        this.title=title;
+        this.content=content;
+        this.writer=writer;
+        //this.boardId=boardId;
     }
 //    @Override
 //    public String toString() {
